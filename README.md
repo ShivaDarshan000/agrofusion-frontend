@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# 🌱 AgroFusion — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Beautiful, responsive web interface for the AgroFusion AI crop recommendation system.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-blue)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black)
+![Responsive](https://img.shields.io/badge/Responsive-All%20Devices-green)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Live Application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+https://agrofusion-frontend.vercel.app
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📌 Project Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+AgroFusion is a Final Year B.Tech project that helps farmers and agriculturalists make data-driven crop decisions. The frontend provides a clean, intuitive interface to:
 
-### `npm run build`
+- Enter soil composition, climate conditions, and market demand data
+- Get AI-powered crop recommendations instantly
+- View top 5 crops ranked by confidence score
+- Works seamlessly on desktop, tablet, and mobile
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🗂️ Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+agrofusion-frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── CropForm.js        # Input form with all 8 parameters
+│   │   ├── ResultCard.js      # Best crop recommendation card
+│   │   └── TopCropsList.js    # Top 5 crops with confidence bars
+│   ├── services/
+│   │   └── api.js             # Axios API calls to backend
+│   ├── App.js                 # Main app with wake-up logic
+│   └── App.css                # Full design system with media queries
+├── package.json
+└── README.md
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔧 Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Technology | Purpose |
+|---|---|
+| **React 18** | UI framework |
+| **Axios** | HTTP requests to backend API |
+| **CSS3** | Custom design system with variables |
+| **Google Fonts** | Fraunces (display) + DM Sans (body) |
+| **Vercel** | Deployment and hosting |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎨 Design System
 
-## Learn More
+| Property | Value |
+|---|---|
+| **Primary Font** | Fraunces (serif display) |
+| **Body Font** | DM Sans |
+| **Theme** | Organic earthy — forest greens, harvest gold, cream |
+| **Style** | Botanical / Agricultural |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Color Palette
+```
+Forest Green  →  #2D4A1E
+Leaf Green    →  #5C8A3C
+Sage          →  #A8C97F
+Harvest Gold  →  #C8960C
+Cream         →  #F8F4EC
+Soil Brown    →  #6B4423
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📱 Responsive Breakpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Breakpoint | Device |
+|---|---|
+| `1024px` | Small laptop |
+| `960px` | Tablet landscape |
+| `768px` | Tablet portrait |
+| `580px` | Large mobile |
+| `400px` | Small mobile |
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## ✨ Features
 
-### Making a Progressive Web App
+- ✅ **Smart Backend Wake-up** — pings backend on page load to minimize cold start delay
+- ✅ **Server Status Indicator** — shows live connection status in header
+- ✅ **Wake Banner** — notifies user while backend is starting up
+- ✅ **Grouped Input Fields** — soil, climate, and market inputs clearly separated
+- ✅ **Confidence Bars** — visual progress bars showing crop confidence scores
+- ✅ **Crop Emojis** — auto-matched emojis for all 22 supported crops
+- ✅ **Error Handling** — clear error messages for invalid inputs or API failures
+- ✅ **Loading States** — animated spinner during prediction
+- ✅ **Fully Responsive** — works on all screen sizes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🛠️ Run Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 1. Clone the repository
+```bash
+git clone https://github.com/ShivaDarshan000/agrofusion-frontend.git
+cd agrofusion-frontend
+```
 
-### Deployment
+### 2. Install dependencies
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 3. Start development server
+```bash
+npm start
+```
 
-### `npm run build` fails to minify
+### 4. Open in browser
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> ⚠️ Make sure the backend is running at `http://127.0.0.1:8000` for local development.
+
+---
+
+## 🔗 API Connection
+
+The frontend connects to the AgroFusion backend API:
+
+```javascript
+// src/services/api.js
+const API_URL = "https://agrofusion-backend.onrender.com";
+```
+
+To run with local backend, change to:
+```javascript
+const API_URL = "http://127.0.0.1:8000";
+```
+
+---
+
+## 📊 Sample Input Values
+
+| Field | Example Value |
+|---|---|
+| Nitrogen (N) | 90 |
+| Phosphorus (P) | 42 |
+| Potassium (K) | 43 |
+| Temperature | 24.5 |
+| Humidity | 82 |
+| pH | 6.5 |
+| Rainfall | 210 |
+| Demand Index | 70 |
+
+---
+
+## ☁️ Deployment
+
+Deployed on **Vercel** with automatic redeployment on every push to `main` branch.
+
+---
+
+## 🔗 Related Repository
+
+- **Backend API:** [agrofusion-backend](https://github.com/ShivaDarshan000/agrofusion-backend)
+
