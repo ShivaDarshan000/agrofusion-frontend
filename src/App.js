@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CropForm from "./components/CropForm";
 import ResultCard from "./components/ResultCard";
 import TopCropsList from "./components/TopCropsList";
@@ -7,6 +7,20 @@ import "./App.css";
 function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [backendStatus, setBackendStatus] = useState("waking");
+
+  // Wake up backend as soon as page loads
+  useEffect(() => {
+    fetch("https://agrofusion-backend.onrender.com")
+      .then(() => {
+        console.log("Backend is awake");
+        setBackendStatus("ready");
+      })
+      .catch(() => {
+        console.log("Waking up backend...");
+        setBackendStatus("ready");
+      });
+  }, []);
 
   const handleResult = (data) => {
     setResult(data);
@@ -23,11 +37,9 @@ function App() {
             <circle cx="120" cy="150" r="80" fill="#5C8A3C" />
             <circle cx="1320" cy="700" r="100" fill="#3D6B2A" />
             <circle cx="700" cy="50" r="60" fill="#A8C97F" />
-            {/* Leaf shapes */}
             <ellipse cx="200" cy="750" rx="120" ry="40" fill="#6BA34A" transform="rotate(-30 200 750)" />
             <ellipse cx="1200" cy="200" rx="90" ry="30" fill="#5C8A3C" transform="rotate(20 1200 200)" />
             <ellipse cx="900" cy="820" rx="140" ry="45" fill="#4A7A35" transform="rotate(-15 900 820)" />
-            {/* Soil texture dots */}
             {[...Array(30)].map((_, i) => (
               <circle
                 key={i}
@@ -42,6 +54,16 @@ function App() {
         </svg>
       </div>
 
+      {/* Wake up banner — shows only while backend is starting */}
+      {backendStatus === "waking" && (
+        <div className="wake-banner">
+          <div className="wake-banner-inner">
+            <div className="wake-dot" />
+            <span>Connecting to AI server — this takes a few seconds on first load…</span>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="header">
         <div className="header-inner">
@@ -53,6 +75,12 @@ function App() {
             </div>
           </div>
           <nav className="header-nav">
+            <div className={`status-dot ${backendStatus === "ready" ? "status-ready" : "status-waking"}`}>
+              <span className="status-pulse" />
+              <span className="status-text">
+                {backendStatus === "ready" ? "Server Ready" : "Connecting…"}
+              </span>
+            </div>
             <span className="nav-badge">AI-Powered</span>
             <span className="nav-badge soil">Soil • Climate • Market</span>
           </nav>
